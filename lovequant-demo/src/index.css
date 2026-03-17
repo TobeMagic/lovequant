@@ -1,0 +1,99 @@
+:root {
+  --paper: #efe8d8;
+  --paper-bright: #ffffff;
+  --ink: #09111d;
+  --ink-soft: #556171;
+  --coral: #ff623d;
+  --mint: #d8ff58;
+  --mint-deep: #5a7308;
+  --plum: #2d5dff;
+  --market-up: #62d27a;
+  --market-up-fill: rgba(98, 210, 122, 0.82);
+  --market-down: #ff6b5a;
+  --market-down-fill: rgba(255, 107, 90, 0.8);
+  --ma-fast: #f4d35e;
+  --ma-slow: #82d0ff;
+  --volume-glow: rgba(130, 208, 255, 0.24);
+  --border: rgba(9, 17, 29, 0.12);
+  --shadow: 0 30px 80px rgba(9, 17, 29, 0.08);
+  --display: 'Fraunces', serif;
+  --body: 'IBM Plex Sans', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[lang='zh-CN'] {
+  --market-up: #ff6b5a;
+  --market-up-fill: rgba(255, 107, 90, 0.82);
+  --market-down: #59c96f;
+  --market-down-fill: rgba(89, 201, 111, 0.8);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 90, 54, 0.14) 0%, transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(50, 92, 255, 0.12) 0%, transparent 22%),
+    radial-gradient(circle at 74% 74%, rgba(211, 255, 90, 0.1) 0%, transparent 20%),
+    linear-gradient(180deg, rgba(250, 247, 240, 0.98), rgba(239, 232, 216, 0.98)),
+    var(--paper);
+  color: var(--ink-soft);
+  font: 400 17px/1.55 var(--body);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image:
+    linear-gradient(rgba(19, 32, 51, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19, 32, 51, 0.3) 1px, transparent 1px);
+  background-size: 128px 128px;
+  mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+
+p {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
