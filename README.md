@@ -1,112 +1,108 @@
-# LoveQuant Init
+# LoveQuant
 
-## 当前确认的产品设计
+> Don't guess the relationship. Read the signal.  
+> 别凭感觉，用数据读懂关系。
 
-### 产品名
+LoveQuant is an open-source relationship signal board that turns messaging rhythm into candlesticks, overlap heatmaps, delay distributions, anomaly markers, and action-ready reports.
 
-`LoveQuant`
+This repository currently ships the interactive concept site, visual system, and product narrative for LoveQuant: a self-hosted, cross-channel relationship analytics experience designed for WeChat, WhatsApp, Telegram, iMessage, LINE, Messenger, Instagram DM, and structured imports.
 
-### Slogan
+[Live Demo](https://tobemagic.github.io/lovequant/) · [Market Poster](./assets/market-poster.png) · [Teaser GIF](./assets/market-teaser.gif) · [Design Philosophy](./DESIGN_PHILOSOPHY.md) · [Algorithmic Philosophy](./ALGORITHMIC_PHILOSOPHY.md)
 
-`别凭感觉，用数据读懂关系`
+![LoveQuant Preview](./assets/market-poster.png)
 
-### 产品定位
+## Why LoveQuant
 
-用跨平台沟通数据量化亲密关系的健康趋势，帮助情侣发现沟通盲区、识别变化，并更理性地改善关系质量。
+- Read relationship momentum with data instead of guesswork
+- See timing, message investment, initiative balance, overlap windows, and anomaly shifts in one signal language
+- Support the channels couples actually use, from WeChat and WhatsApp to Telegram, LINE, iMessage, and manual exports
+- Keep the stack self-hosted, inspectable, and extensible
 
-### 核心理念
+## Highlights
 
-不要凭感觉猜关系状态，而是把聊天行为中的元数据转成可读懂的关系图表，让两个人都能更清醒地看见投入、变化与节奏。
+- Market-style K-line timeline for 28-day relationship heat
+- 7-day overlap heatmap with visible hot zones and cooling windows
+- Reply delay distribution and message length trend analysis
+- Initiative balance and health scoring on a single dashboard surface
+- Parser demo that shows raw messages, extracted signals, and runtime flow together
+- Open-source runtime map for connectors, scoring, reports, and future extensions
 
-## 8 大核心指标
+## Core Signals
 
-| 指标 | 洞察价值 | 可视化形式 |
+| Signal | What it reveals | Surface |
 | --- | --- | --- |
-| 消息频率趋势 | 互动活跃度变化 | K 线图 |
-| 回复时延分布 | 响应优先级变化 | 分布图 |
-| 消息长度趋势 | 对话投入程度 | 趋势图 |
-| 双方主动度对比 | 关系平衡健康度 | 对比图 |
-| 活跃时间热图 | 共同在线时段 | 热力图 |
-| 关系健康评分 | 整体趋势总览 | 仪表盘 |
-| 异动预警提示 | 及时发现低谷期 | 标注图 |
-| AI 互动建议 | 针对性行动指南 | 建议卡 |
+| Message Frequency | Relationship activity trend | Candlestick / trend |
+| Reply Delay | Responsiveness and priority shifts | Distribution |
+| Message Length | Conversation investment level | Trend |
+| Initiative Balance | Who is carrying the rhythm | Split bar |
+| Active Time Overlap | Shared availability windows | Heatmap |
+| Health Score | Overall relationship state | Gauge |
+| Anomaly Alerts | Sudden drops, spikes, or collapses | Marker list |
+| AI Suggestions | What to do next | Action prompts |
 
-## 三种接入方案
+## Channels and Input Modes
 
-### 方案 A
+### Channels
 
-`共享会话同步`
-
-- 双方共同授权共享会话或工作区
-- Bot 仅读取消息元数据，不存储消息文本
-- 适配微信、WhatsApp、Telegram、Messenger、LINE 等主流私聊渠道
-
-### 方案 B
-
-`手动导入 / 导出`
-
-- 用户主动转发摘要、导入导出数据或输入对话摘要
-- Bot 即时生成指标更新
-- 适合微信、iMessage、Instagram DM 等更轻量或更谨慎的场景
-
-### 方案 C
-
-`在线状态 + 时间窗口信号`
-
-- 基于双方公开的在线状态和活跃窗口数据
-- 生成活跃度、时间重叠和节奏变化指标
-
-## 平台覆盖
-
-- 微信 `WeChat`
+- WeChat
 - WhatsApp
 - Telegram
 - iMessage
 - Messenger
 - LINE
 - Instagram DM
-- 手动导出 / 手动摘要模式
+- Exported history / manual summaries
 
-## 用户使用流程
+### Input Modes
 
-1. 双方设置
-   - 各自授权 `@LoveQuantBot`
-   - Bot 返回“指标同步开启”
-2. 日常对话
-   - 正常聊天即可
-   - 后台仅静默采集元数据
-3. 查看仪表盘
-   - 发送 `@lovequant report`
-   - 返回健康评分、K 线图、预警提示和 AI 建议
+1. Shared thread sync
+   Metadata from a shared conversation or workspace flows into the dashboard.
+2. Manual import / export
+   Summaries, exports, or snapshots update the report immediately.
+3. Presence + time-window signals
+   Lightweight overlap signals for channels where full sync is not ideal.
 
-## 开源自托管原则
+## What This Repo Contains Today
 
-- 自托管部署：可运行在自己的设备、服务器或私有云
-- 自带接入能力：根据平台选择导出、API、Bot 或手动导入
-- 分析链路可审计：采集、整理、评分与输出逻辑均可查看和修改
-- 数据保留可配置：存储格式、保留周期和删除策略由部署者自己决定
+- A polished interactive homepage in [`lovequant-demo/`](./lovequant-demo/)
+- A GitHub Pages deployment workflow in [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml)
+- Visual and narrative references in [`themes/`](./themes/), [`art/`](./art/), and [`assets/`](./assets/)
+- Product positioning, brand direction, and signal design notes in this root directory
 
-## Demo 目标
+## Self-Hosted Model
 
-当前前端 demo 需要完整展示以下内容：
+LoveQuant is designed to be run on your own stack.
 
-- 大胆、记忆点强的品牌首屏
-- 8 指标产品框架
-- 3 种接入方案
-- 主流情侣沟通渠道覆盖
-- 从授权到实时分析再到结果输出的完整流程
-- 微信、WhatsApp、Telegram、iMessage、Messenger、LINE、Instagram DM 等主流渠道语境
-- 默认英文、中文辅助说明
-- 开源自托管能力与报告输出能力
-- 成品级仪表盘视觉，而不是单纯原型图
+- Bring your own adapters for exports, APIs, bots, or manual imports
+- Keep ingestion, normalization, scoring, and reporting logic auditable
+- Control storage format, retention, and report outputs yourself
+- Extend the dashboard into reports, alerts, bots, or custom views
 
-## 产物目录
+## Repo Layout
 
-- `init/README.md`
-- `init/themes/private-signal.md`
-- `init/DESIGN_PHILOSOPHY.md`
-- `init/ALGORITHMIC_PHILOSOPHY.md`
-- `init/art/relationship-signal-viewer.html`
-- `init/assets/market-poster.png`
-- `init/assets/market-teaser.gif`
-- `init/lovequant-demo/`
+```text
+.
+├── .github/workflows/      # GitHub Pages deployment
+├── art/                    # Concept artifacts and visual references
+├── assets/                 # Poster and teaser assets
+├── lovequant-demo/         # Vite + React interactive site
+├── themes/                 # Theme notes and direction
+├── DESIGN_PHILOSOPHY.md    # Visual system notes
+└── ALGORITHMIC_PHILOSOPHY.md
+```
+
+## Development Direction
+
+The current repo focuses on the product surface first: narrative, interaction, dashboard language, and the self-hosted mental model.
+
+The next layer is runtime implementation:
+
+- source adapters
+- metadata ingestion
+- scoring engine
+- report generation
+- export and automation hooks
+
+## License
+
+Add your preferred open-source license before wider distribution.
