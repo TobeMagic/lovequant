@@ -105,4 +105,4 @@ The next layer is runtime implementation:
 
 ## License
 
-Add your preferred open-source license before wider distribution.
+This project is licensed under the [MIT License](./LICENSE).
